@@ -1,64 +1,67 @@
 package co.tiagoaguiar.ganheinamega
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import co.tiagoaguiar.ganheinamega.util.toast
+import androidx.appcompat.app.AppCompatActivity
+import co.tiagoaguiar.ganheinamega.util.snackBar
+import com.google.android.material.snackbar.Snackbar
 import java.util.Random
 
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val editText: EditText = findViewById(R.id.edt_number)
-        val textResult: TextView = findViewById(R.id.txt_result)
+        val edtNumber: EditText = findViewById(R.id.edt_number)
+        val tvResult: TextView = findViewById(R.id.txt_result)
         val btnGenerate: Button = findViewById(R.id.btn_generate)
 
         btnGenerate.setOnClickListener {
-            val text = editText.text.toString()
+            val hideKeyboard = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            hideKeyboard.hideSoftInputFromWindow(btnGenerate.windowToken, 0)
 
-            numberGenerator(text, textResult)
+            val textNumber = edtNumber.text.toString()
+            numberGenerator(textNumber, tvResult)
+
         }
 
     }
 
-    private fun numberGenerator(text: String, txtResult: TextView) {
+    private fun numberGenerator(textNumber: String, txtResult: TextView) {
+
         // validar campo vazio
-        if (text.isNotEmpty()) {
+        if (textNumber.isEmpty()) {
 
-            val quantidade = text.toInt()
-
-            if (quantidade >= 6 && quantidade <= 15) {
-
-                val numbers = mutableSetOf<Int>()
-                val random = Random()
-
-                while (true) {
-
-                    val number = random.nextInt(60) // 0...59
-                    numbers.add(number + 1)
-
-                    if (numbers.size == quantidade) {
-                        break
-                    }
-                }
-
-                txtResult.text = numbers.joinToString(" - ")
-
-            } else {
-                toast(this, "Informe um numero entre 6 e 15", Toast.LENGTH_LONG)
-            }
-
-        } else {
-            toast(this, "Informe um numero entre 6 e 15", Toast.LENGTH_LONG)
-
+            snackBar(txtResult, getString(R.string.message), Snackbar.LENGTH_LONG)
+            return
         }
+
+        val number = textNumber.toInt()
+        if (number < 6 || number > 15) {
+
+            snackBar(txtResult, getString(R.string.message), Snackbar.LENGTH_LONG)
+            return
+        }
+
+        val listNumbers = mutableSetOf<Int>()
+        val random = Random()
+
+        while (true) {
+
+            val numberRandom = random.nextInt(60) // 0...59
+            listNumbers.add(numberRandom + 1)
+
+            if (listNumbers.size == number) {
+                break
+            }
+        }
+
+        txtResult.text = listNumbers.joinToString(" - ")
 
     }
 }
