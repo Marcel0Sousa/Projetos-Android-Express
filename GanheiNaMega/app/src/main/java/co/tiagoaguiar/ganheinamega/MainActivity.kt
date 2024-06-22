@@ -8,22 +8,22 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import co.tiagoaguiar.ganheinamega.databinding.ActivityMainBinding
 import co.tiagoaguiar.ganheinamega.util.snackBar
 import com.google.android.material.snackbar.Snackbar
 import java.util.Random
 
 class MainActivity : AppCompatActivity() {
 
-    // persist data
+    private lateinit var binding: ActivityMainBinding
+
+    // persist data with SharedPreferences
     private lateinit var sharePreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val edtNumber: EditText = findViewById(R.id.edt_number)
-        val tvResult: TextView = findViewById(R.id.txt_result)
-        val btnGenerate: Button = findViewById(R.id.btn_generate)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // instance sharedPreferences
         sharePreferences = getSharedPreferences("data", Context.MODE_PRIVATE)
@@ -31,17 +31,17 @@ class MainActivity : AppCompatActivity() {
         // recover data persisting using SharedPreferences
         val result = sharePreferences.getString("result", null)
         if (result != null) {
-            tvResult.text = "Ultima aposta: $result"
+            binding.tvResult.text = getString(R.string.last_bet, result)
         }
 
-        btnGenerate.setOnClickListener {
+        binding.btnGenerate.setOnClickListener {
 
             // hide keyboard
             val hideKeyboard = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            hideKeyboard.hideSoftInputFromWindow(btnGenerate.windowToken, 0)
+            hideKeyboard.hideSoftInputFromWindow(binding.btnGenerate.windowToken, 0)
 
-            val textNumber = edtNumber.text.toString()
-            numberGenerator(textNumber, tvResult)
+            val textNumber = binding.edtNumber.text.toString()
+            numberGenerator(textNumber, binding.tvResult)
 
         }
 
