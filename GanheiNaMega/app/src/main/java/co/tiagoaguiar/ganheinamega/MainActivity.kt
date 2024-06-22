@@ -1,5 +1,7 @@
 package co.tiagoaguiar.ganheinamega
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -10,8 +12,10 @@ import co.tiagoaguiar.ganheinamega.util.snackBar
 import com.google.android.material.snackbar.Snackbar
 import java.util.Random
 
-
 class MainActivity : AppCompatActivity() {
+
+    // persist data
+    private lateinit var sharePreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +25,18 @@ class MainActivity : AppCompatActivity() {
         val tvResult: TextView = findViewById(R.id.txt_result)
         val btnGenerate: Button = findViewById(R.id.btn_generate)
 
+        // instance sharedPreferences
+        sharePreferences = getSharedPreferences("data", Context.MODE_PRIVATE)
+
+        // recover data persisting using SharedPreferences
+        val result = sharePreferences.getString("result", null)
+        if (result != null) {
+            tvResult.text = "Ultima aposta: $result"
+        }
+
         btnGenerate.setOnClickListener {
+
+            // hide keyboard
             val hideKeyboard = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             hideKeyboard.hideSoftInputFromWindow(btnGenerate.windowToken, 0)
 
@@ -34,13 +49,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun numberGenerator(textNumber: String, txtResult: TextView) {
 
-        // validar campo vazio
+        // validade empty field
         if (textNumber.isEmpty()) {
 
             snackBar(txtResult, getString(R.string.message), Snackbar.LENGTH_LONG)
             return
         }
 
+        // validade number range
         val number = textNumber.toInt()
         if (number < 6 || number > 15) {
 
@@ -62,6 +78,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         txtResult.text = listNumbers.joinToString(" - ")
+
+        // save data persisting using SharedPreferences
+        val editor = sharePreferences.edit()
+        editor.putString("result", txtResult.text.toString())
+        editor.apply() // assinchrono method
 
     }
 }
