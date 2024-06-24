@@ -3,7 +3,7 @@
     <string name="str_title">Boa Sorte!</string>
     <string name="str_number">Ditige um número entre 6 e 15</string>
     <string name="str_number_generator">Gerar Números</string>
-    <string name="message">Informe um número entre 6 e 15</string>
+    <string name="str_message">Informe um número entre 6 e 15</string>
     <string name="str_message_tools">Número da Sorte</string>
-    <string name="last_bet">Ultima aposta: %1$s</string>
+    <string name="str_last_bet">última aposta: \n %1$s</string>
 </resources>

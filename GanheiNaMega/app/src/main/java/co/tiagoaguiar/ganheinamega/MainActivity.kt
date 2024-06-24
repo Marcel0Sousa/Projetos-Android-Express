@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import co.tiagoaguiar.ganheinamega.databinding.ActivityMainBinding
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         // recover data persisting using SharedPreferences
         val result = sharePreferences.getString("result", null)
         if (result != null) {
-            binding.tvResult.text = getString(R.string.last_bet, result)
+            binding.tvResult.text = getString(R.string.str_last_bet, result)
         }
 
         binding.btnGenerate.setOnClickListener {
@@ -52,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         // validade empty field
         if (textNumber.isEmpty()) {
 
-            snackBar(txtResult, getString(R.string.message), Snackbar.LENGTH_LONG)
+            snackBar(txtResult, getString(R.string.str_message), Snackbar.LENGTH_LONG)
             return
         }
 
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         val number = textNumber.toInt()
         if (number < 6 || number > 15) {
 
-            snackBar(txtResult, getString(R.string.message), Snackbar.LENGTH_LONG)
+            snackBar(txtResult, getString(R.string.str_message), Snackbar.LENGTH_LONG)
             return
         }
 
@@ -77,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        txtResult.text = listNumbers.joinToString(" - ")
+        txtResult.text = listNumbers.sorted().joinToString(" - ")
 
         // save data persisting using SharedPreferences
         val editor = sharePreferences.edit()

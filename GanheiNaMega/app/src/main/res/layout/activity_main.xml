@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/salem"
     android:padding="8dp"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
         android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
         android:layout_marginTop="16dp"
-        android:text="@string/str_title"
-        android:textColor="@color/purple_500"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        android:src="@drawable/icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,30 +43,38 @@
         android:maxLength="2"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textColor="@color/salem"
+        android:textColorHint="@color/salem"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_begin"
         app:layout_constraintTop_toBottomOf="@id/txt_title" />
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_number"
-        tools:text="@string/str_message_tools" />
 
     <Button
         android:id="@+id/btn_generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/medium_sea_green"
         android:text="@string/str_number_generator"
         android:textAllCaps="false"
+        android:textColor="@color/bright_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_result" />
+        app:layout_constraintTop_toBottomOf="@id/edt_number" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/jet_stream"
+        android:gravity="center_horizontal"
+        android:padding="32dp"
+        android:text="@string/str_message_tools"
+        android:textColor="@color/cal_poly_pomona_green"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_begin"
+        app:layout_constraintTop_toBottomOf="@id/btn_generate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
