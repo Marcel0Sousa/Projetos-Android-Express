@@ -12,4 +12,4 @@
 
 
 ## Screenshot
-<img arc="https://github.com/Marcel0Sousa/Projetos-Android-Express/blob/GanheiNaMega/screenshot.png?raw=true" alt="Script">
+<img src="https://github.com/Marcel0Sousa/Projetos-Android-Express/blob/GanheiNaMega/screenshot.png?raw=true" alt="Script">
