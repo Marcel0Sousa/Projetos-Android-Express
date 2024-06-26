@@ -1,4 +1,4 @@
-package co.tiagoaguiar.fitnesstracker
+package com.marcelo.fitnesstracker
 
 import org.junit.Test
 
