@@ -9,49 +9,32 @@
     tools:context=".ImcActivity">
 
     <LinearLayout
-        android:layout_gravity="center"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
         <TextView
+            style="@style/TextViewFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="40dp"
             android:text="@string/imc_description" />
 
         <EditText
             android:id="@+id/edt_img_weight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            style="@style/EditTextForm"
             android:hint="@string/weight_kg"
-            android:inputType="number"
-            android:maxLength="3"
-            android:maxLines="1" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/edt_imc_height"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            style="@style/EditTextForm"
             android:hint="@string/height_cm"
-            android:inputType="number"
-            android:maxLength="3"
-            android:maxLines="1" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/btn_imc_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            style="@style/ButtonFrom"
             android:text="@string/label_calculate" />
 
     </LinearLayout>
