@@ -1,11 +1,13 @@
 package com.marcelo.fitnesstracker
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -30,18 +32,27 @@ class ImcActivity : AppCompatActivity() {
 
             val weight = edtWeight.text.toString().toInt()
             val height = edtHeight.text.toString().toInt()
-            val result = calculateImc(weight, height)
-            Log.i("imc", result.toString())
 
-            val imcResponseId = imcResponse(result)
+            Log.i("imc", calculateImc(weight, height).toString())
+            val imcResponseId = imcResponse(calculateImc(weight, height))
 
-            Toast.makeText(this, imcResponseId, Toast.LENGTH_SHORT).show()
+            AlertDialog.Builder(this)
+                .setTitle(getString(R.string.imc_response, calculateImc(weight, height)))
+                .setMessage(imcResponseId)
+                .setPositiveButton(
+                    android.R.string.ok
+                ) { dialog, which ->
+
+                }
+
+                .create()
+                .show()
         }
     }
 
     @StringRes
     private fun imcResponse(imc: Double): Int {
-        return when{
+        return when {
             imc < 15.0 -> R.string.imc_severely_low_weight
             imc < 16.0 -> R.string.imc_very_low_weight
             imc < 18.5 -> R.string.imc_low_weight
