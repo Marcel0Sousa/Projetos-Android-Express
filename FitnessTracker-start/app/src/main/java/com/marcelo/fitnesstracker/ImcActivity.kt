@@ -30,9 +30,10 @@ class ImcActivity : AppCompatActivity() {
 
             val weight = edtWeight.text.toString().toInt()
             val height = edtHeight.text.toString().toInt()
-            Log.i("imc", "${calculateImc(weight, height)}")
+            val result = calculateImc(weight, height)
+            Log.i("imc", result.toString())
 
-            val imcResponseId = imcResponse(calculateImc(weight, height))
+            val imcResponseId = imcResponse(result)
 
             Toast.makeText(this, imcResponseId, Toast.LENGTH_SHORT).show()
         }
@@ -40,22 +41,15 @@ class ImcActivity : AppCompatActivity() {
 
     @StringRes
     private fun imcResponse(imc: Double): Int {
-        if (imc < 15.0) {
-            return R.string.imc_severely_low_weight
-        } else if (imc < 16.0) {
-            return R.string.imc_very_low_weight
-        } else if (imc < 18.5) {
-            return R.string.imc_low_weight
-        } else if (imc < 25.0) {
-            return R.string.normal
-        } else if (imc < 30.0) {
-            return R.string.imc_high_weight
-        } else if (imc < 35.0) {
-            return R.string.imc_so_high_weight
-        } else if (imc < 40.0) {
-            return R.string.imc_severely_high_weight
-        } else {
-            return R.string.imc_extreme_weight
+        return when{
+            imc < 15.0 -> R.string.imc_severely_low_weight
+            imc < 16.0 -> R.string.imc_very_low_weight
+            imc < 18.5 -> R.string.imc_low_weight
+            imc < 25.0 -> R.string.normal
+            imc < 30.0 -> R.string.imc_high_weight
+            imc < 35.0 -> R.string.imc_so_high_weight
+            imc < 40.0 -> R.string.imc_severely_high_weight
+            else -> R.string.imc_extreme_weight
         }
 
     }
