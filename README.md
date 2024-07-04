@@ -9,3 +9,4 @@
 | 3. Regra de negócio |
 | 4. Implementação de Dialos/PopUps |
 | 5. Gerenciamento do teclado com ```getSystemService()``` |
+| 6. Listas dinâmicas com o RecyclerView |
