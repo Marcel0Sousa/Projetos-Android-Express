@@ -1,13 +1,12 @@
 package com.marcelo.fitnesstracker
 
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-data class MainItem(
+data class MainItens(
     val id: Int,
-    @DrawableRes
-    val drawableId: Int,
-    @StringRes
-    val textString: Int,
-    val color: Int
+    @DrawableRes val drawableId: Int,
+    @StringRes val textString: Int,
+    @ColorRes val color: Int
 )

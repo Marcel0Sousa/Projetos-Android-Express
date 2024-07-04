@@ -1,16 +1,18 @@
 package com.marcelo.fitnesstracker
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class MainAdapter(
-    private val mainItens: List<MainItem>
-): RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+    private val mainItens: List<MainItens>,
+    private val onItemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     // bind layout xml
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
@@ -27,17 +29,23 @@ class MainAdapter(
         return mainItens.size
     }
 
-    inner class MainViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: MainItem) {
 
+        fun bind(item: MainItens) {
+
+            // bind componentes xml
             val img: ImageView = itemView.findViewById(R.id.item_img_icon)
             val name: TextView = itemView.findViewById(R.id.item_text_name)
-            val container: LinearLayout = itemView as LinearLayout
+            val container: ConstraintLayout = itemView.findViewById(R.id.item_container_imc)
 
             img.setImageResource(item.drawableId)
             name.setText(item.textString)
-            container.setBackgroundColor(item.color)
+            container.setBackgroundResource(item.color)
+
+            container.setOnClickListener {
+                onItemClickListener.onClick(item.id)
+            }
         }
 
     }
