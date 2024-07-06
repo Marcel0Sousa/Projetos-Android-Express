@@ -72,22 +72,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-
-/*
-// Metodo 1 de onClick usando implementacao de interface via Activity
-override fun onClick(id: Int) {
-    Log.i("Click", "Clicou")
-    when (id) {
-        1 -> {
-            val intent = Intent(this, ImcActivity::class.java)
-            startActivity(intent)
-        }
-
-        2 -> {
-            // abrir activity para calcular o TMB
-            Toast.makeText(this, "Funcionalidade em desenvolvimento", Toast.LENGTH_SHORT).show()
-        }
-    }
-}
-*/

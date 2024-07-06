@@ -10,3 +10,4 @@
 | 4. Implementação de Dialos/PopUps |
 | 5. Gerenciamento do teclado com ```getSystemService()``` |
 | 6. Listas dinâmicas com o RecyclerView |
+| 7. Implementação do metodo de click na lista |
