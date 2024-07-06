@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainAdapter(
     private val mainItens: List<MainItens>,
-    private val onItemClickListener: OnItemClickListener
+    private val onItemClickListener: (Int) -> Unit
 ) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     // bind layout xml
@@ -31,7 +31,6 @@ class MainAdapter(
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
         fun bind(item: MainItens) {
 
             // bind componentes xml
@@ -44,7 +43,7 @@ class MainAdapter(
             container.setBackgroundResource(item.color)
 
             container.setOnClickListener {
-                onItemClickListener.onClick(item.id)
+                onItemClickListener.invoke(item.id)
             }
         }
 

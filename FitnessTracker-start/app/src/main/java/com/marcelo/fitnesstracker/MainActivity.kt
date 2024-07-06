@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity(), OnItemClickListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var btnImc: LinearLayout
     private lateinit var rvMainActivity: RecyclerView
 
@@ -22,29 +22,32 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         val mainItens = mainItens()
 
         rvMainActivity = findViewById(R.id.rv_main)
-        val adapter = MainAdapter(mainItens, this)
+        val adapter = MainAdapter(mainItens) { id ->
+            when (id) {
+                1 -> {
+                    val intent = Intent(
+                        this@MainActivity,
+                        ImcActivity::class.java
+                    )
+                    startActivity(intent)
+                }
+
+                2 -> {
+                    // abrir activity para calcular o TMB
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Funcionalidade em desenvolvimento",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+        }
         rvMainActivity.adapter = adapter
         //rvMainActivity.layoutManager = LinearLayoutManager(this)
         rvMainActivity.layoutManager = GridLayoutManager(this, 2)
 
     }
-
-
-    override fun onClick(id: Int) {
-        Log.i("Click", "Clicou")
-        when (id) {
-            1 -> {
-                val intent = Intent(this, ImcActivity::class.java)
-                startActivity(intent)
-            }
-
-            2 -> {
-                // abrir activity para calcular o TMB
-                Toast.makeText(this, "Funcionalidade em desenvolvimento", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
 
     private fun mainItens(): MutableList<MainItens> {
         val mainItens = mutableListOf<MainItens>()
@@ -69,3 +72,22 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     }
 
 }
+
+
+/*
+// Metodo 1 de onClick usando implementacao de interface via Activity
+override fun onClick(id: Int) {
+    Log.i("Click", "Clicou")
+    when (id) {
+        1 -> {
+            val intent = Intent(this, ImcActivity::class.java)
+            startActivity(intent)
+        }
+
+        2 -> {
+            // abrir activity para calcular o TMB
+            Toast.makeText(this, "Funcionalidade em desenvolvimento", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+*/
