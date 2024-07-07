@@ -11,3 +11,11 @@
 | 5. Gerenciamento do teclado com ```getSystemService()``` |
 | 6. Listas dinâmicas com o RecyclerView |
 | 7. Implementação do metodo de click na lista |
+
+### Dependências do Room
+```
+dependencies {
+    implementation "androidx.room:room-runtime:2.5.0"
+    kapt "androidx.room:room-compiler:2.5.0"
+}
+```
