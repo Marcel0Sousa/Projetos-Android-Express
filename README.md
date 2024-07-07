@@ -14,6 +14,10 @@
 
 ### Dependências do Room
 ```
+plugins {
+    id("kotlin-kapt")
+}
+
 dependencies {
     implementation "androidx.room:room-runtime:2.5.0"
     kapt "androidx.room:room-compiler:2.5.0"
