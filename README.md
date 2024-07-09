@@ -13,6 +13,7 @@
 | 7. Implementação do metodo de click na lista |
 | 8. Dependências do Room |
 | 9. Configurando o Jetpack Room |
+| 10. Inserindo dados no banco |
 
 ### Dependências do Room
 ```
