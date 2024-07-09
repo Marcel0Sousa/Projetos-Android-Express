@@ -7,7 +7,7 @@ import java.util.Date
 
 @Entity
 data class Calc(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo("type")
     val type: String,

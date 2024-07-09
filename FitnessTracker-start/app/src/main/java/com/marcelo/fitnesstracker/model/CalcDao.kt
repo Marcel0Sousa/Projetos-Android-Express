@@ -10,8 +10,4 @@ interface CalcDao {
     @Insert
     fun insert(calc: Calc)
 
-    @Update
-    fun update(calc: Calc)
-
-
 }

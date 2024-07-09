@@ -7,10 +7,13 @@ import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import com.marcelo.fitnesstracker.model.Calc
 
 
 class ImcActivity : AppCompatActivity() {
@@ -35,8 +38,10 @@ class ImcActivity : AppCompatActivity() {
             val weight = edtWeight.text.toString().toInt()
             val height = edtHeight.text.toString().toInt()
 
+            val result = calculateImc(weight, height)
+
             Log.i("imc", calculateImc(weight, height).toString())
-            val imcResponseId = imcResponse(calculateImc(weight, height))
+            val imcResponseId = imcResponse(result)
 
             AlertDialog.Builder(this)
                 .setTitle(getString(R.string.imc_response, calculateImc(weight, height)))
@@ -46,7 +51,18 @@ class ImcActivity : AppCompatActivity() {
                 ) { dialog, which ->
 
                 }
+                .setNegativeButton(R.string.save) {dialog, whitch ->
+                    Thread {
+                        val app = application as App
+                        val calcDao = app.db.calcDao()
+                        calcDao.insert(Calc(type = "imc", response = result))
 
+                        runOnUiThread {
+                            val view: LinearLayout = findViewById(R.id.imc_layout)
+                            Snackbar.make(view, R.string.calc_saved, Snackbar.LENGTH_LONG).show()
+                        }
+                    }.start()
+                }
                 .create()
                 .show()
 
