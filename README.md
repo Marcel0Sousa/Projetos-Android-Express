@@ -12,6 +12,7 @@
 | 6. Listas dinâmicas com o RecyclerView |
 | 7. Implementação do metodo de click na lista |
 | 8. Dependências do Room |
+| 9. Configurando o Jetpack Room |
 
 ### Dependências do Room
 ```
