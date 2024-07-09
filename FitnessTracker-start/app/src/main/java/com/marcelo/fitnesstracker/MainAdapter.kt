@@ -1,6 +1,5 @@
 package com.marcelo.fitnesstracker
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.marcelo.fitnesstracker.model.MainItens
 
 class MainAdapter(
     private val mainItens: List<MainItens>,

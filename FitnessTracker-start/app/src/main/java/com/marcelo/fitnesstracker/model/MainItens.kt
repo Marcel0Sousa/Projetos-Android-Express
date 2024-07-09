@@ -1,4 +1,4 @@
-package com.marcelo.fitnesstracker
+package com.marcelo.fitnesstracker.model
 
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
