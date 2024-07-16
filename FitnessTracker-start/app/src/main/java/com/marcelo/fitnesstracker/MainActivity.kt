@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.marcelo.fitnesstracker.Adapters.MainAdapter
 import com.marcelo.fitnesstracker.model.MainItens
 
 class MainActivity : AppCompatActivity() {

@@ -2,6 +2,7 @@ package com.marcelo.fitnesstracker
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
@@ -58,8 +59,13 @@ class ImcActivity : AppCompatActivity() {
                         calcDao.insert(Calc(type = "imc", response = result))
 
                         runOnUiThread {
-                            val view: LinearLayout = findViewById(R.id.imc_layout)
-                            Snackbar.make(view, R.string.calc_saved, Snackbar.LENGTH_LONG).show()
+                            /*val view: LinearLayout = findViewById(R.id.imc_layout)
+                            Snackbar.make(view, R.string.calc_saved, Snackbar.LENGTH_LONG).show()*/
+
+                            val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
+                            intent.putExtra("type", "imc")
+                            startActivity(intent)
+
                         }
                     }.start()
                 }
