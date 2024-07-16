@@ -15,6 +15,7 @@
 | 9. Configurando o Jetpack Room |
 | 10. Inserindo dados no banco |
 | 11. Listando dados do banco |
+| 12. Formatando o resultado da lista |
 
 ### Dependências do Room
 ```
