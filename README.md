@@ -16,6 +16,7 @@
 | 10. Inserindo dados no banco |
 | 11. Listando dados do banco |
 | 12. Formatando o resultado da lista |
+| 13. Implementando um ```menu``` de acesso aos registros salvos |
 
 ### Dependências do Room
 ```
