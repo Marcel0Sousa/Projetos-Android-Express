@@ -18,6 +18,16 @@ class ListCalcActivity : AppCompatActivity() {
         val type =
             intent?.extras?.getString("type") ?: throw IllegalStateException("Type not found")
 
+        val listItem = mutableListOf<Calc>()
+        /*for (item in registerByType) {
+            listItem.add(item)
+        }*/
+
+        rvListCalc = findViewById(R.id.rv_list_calc)
+        val adapter = ListCalcAdapter(listItem)
+        rvListCalc.adapter = adapter
+        rvListCalc.layoutManager = LinearLayoutManager(this)
+
         Thread {
             val app = application as App
             val calcDao = app.db.calcDao()
@@ -26,15 +36,10 @@ class ListCalcActivity : AppCompatActivity() {
             runOnUiThread {
                 Log.i("Type", "registerByType: $registerByType\n")
 
-                val listItem = mutableListOf<Calc>()
-                for (item in registerByType) {
-                    listItem.add(item)
+                adapter.run {
+                    listItem.addAll(registerByType)
+                    notifyDataSetChanged()
                 }
-
-                rvListCalc = findViewById(R.id.rv_list_calc)
-                val adapter = ListCalcAdapter(listItem)
-                rvListCalc.adapter = adapter
-                rvListCalc.layoutManager = LinearLayoutManager(this)
             }
         }.start()
     }

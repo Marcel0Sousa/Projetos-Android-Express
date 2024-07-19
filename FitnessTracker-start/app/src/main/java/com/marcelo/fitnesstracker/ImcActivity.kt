@@ -5,6 +5,8 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -62,9 +64,7 @@ class ImcActivity : AppCompatActivity() {
                             /*val view: LinearLayout = findViewById(R.id.imc_layout)
                             Snackbar.make(view, R.string.calc_saved, Snackbar.LENGTH_LONG).show()*/
 
-                            val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
-                            intent.putExtra("type", "imc")
-                            startActivity(intent)
+                            onOpenActivity()
 
                         }
                     }.start()
@@ -77,6 +77,26 @@ class ImcActivity : AppCompatActivity() {
             service.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
 
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_search -> {
+                onOpenActivity()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun onOpenActivity() {
+        val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
+        intent.putExtra("type", "imc")
+        startActivity(intent)
     }
 
     @StringRes
