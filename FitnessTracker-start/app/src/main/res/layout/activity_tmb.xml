@@ -20,17 +20,34 @@
             style="@style/TextViewFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/imc_description" />
+            android:text="@string/tmb_desc" />
 
         <EditText
-            android:id="@+id/edt_imc_weight"
+            android:id="@+id/edt_tmb_weight"
             style="@style/EditTextForm"
             android:hint="@string/weight_kg" />
 
         <EditText
-            android:id="@+id/edt_imc_height"
+            android:id="@+id/edt_tmb_height"
             style="@style/EditTextForm"
             android:hint="@string/height_cm" />
+
+        <EditText
+            android:id="@+id/edt_tmb_age"
+            style="@style/EditTextForm"
+            android:hint="@string/age" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/AutoTextViewForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_imc_send"

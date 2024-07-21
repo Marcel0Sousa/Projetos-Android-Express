@@ -1,7 +1,6 @@
 package com.marcelo.fitnesstracker
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,12 +9,10 @@ import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
 import com.marcelo.fitnesstracker.model.Calc
 
 
@@ -28,7 +25,7 @@ class ImcActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc)
 
-        edtWeight = findViewById(R.id.edt_img_weight)
+        edtWeight = findViewById(R.id.edt_imc_weight)
         edtHeight = findViewById(R.id.edt_imc_height)
         btnSend = findViewById(R.id.btn_imc_send)
 
@@ -63,7 +60,7 @@ class ImcActivity : AppCompatActivity() {
                         runOnUiThread {
                             /*val view: LinearLayout = findViewById(R.id.imc_layout)
                             Snackbar.make(view, R.string.calc_saved, Snackbar.LENGTH_LONG).show()*/
-
+                            finish()
                             onOpenActivity()
 
                         }
@@ -87,6 +84,7 @@ class ImcActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_search -> {
+                finish()
                 onOpenActivity()
             }
         }

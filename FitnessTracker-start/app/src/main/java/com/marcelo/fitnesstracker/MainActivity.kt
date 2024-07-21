@@ -32,12 +32,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 2 -> {
-                    // abrir activity para calcular o TMB
-                    Toast.makeText(
+                    val intent = Intent(
                         this@MainActivity,
-                        "Funcionalidade em desenvolvimento",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                        TmbActivity::class.java
+                    )
+                    startActivity(intent)
                 }
             }
 

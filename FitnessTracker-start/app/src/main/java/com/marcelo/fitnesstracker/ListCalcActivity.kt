@@ -19,9 +19,6 @@ class ListCalcActivity : AppCompatActivity() {
             intent?.extras?.getString("type") ?: throw IllegalStateException("Type not found")
 
         val listItem = mutableListOf<Calc>()
-        /*for (item in registerByType) {
-            listItem.add(item)
-        }*/
 
         rvListCalc = findViewById(R.id.rv_list_calc)
         val adapter = ListCalcAdapter(listItem)
