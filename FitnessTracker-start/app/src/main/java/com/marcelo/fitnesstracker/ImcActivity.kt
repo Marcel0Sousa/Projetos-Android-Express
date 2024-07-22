@@ -2,6 +2,7 @@ package com.marcelo.fitnesstracker
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.marcelo.fitnesstracker.model.Calc
@@ -24,6 +26,11 @@ class ImcActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc)
+
+        val actionBar: ActionBar
+        actionBar = supportActionBar!!
+        val colorDrawable = ColorDrawable(getColor(R.color.color_imc))
+        actionBar.setBackgroundDrawable(colorDrawable)
 
         edtWeight = findViewById(R.id.edt_imc_weight)
         edtHeight = findViewById(R.id.edt_imc_height)
@@ -51,7 +58,7 @@ class ImcActivity : AppCompatActivity() {
                 ) { dialog, which ->
 
                 }
-                .setNegativeButton(R.string.save) {dialog, whitch ->
+                .setNegativeButton(R.string.save) { dialog, whitch ->
                     Thread {
                         val app = application as App
                         val calcDao = app.db.calcDao()
