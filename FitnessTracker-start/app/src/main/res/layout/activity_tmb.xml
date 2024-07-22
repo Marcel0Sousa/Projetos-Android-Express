@@ -5,7 +5,7 @@
     android:id="@+id/imc_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_imc"
+    android:background="@color/color_tmb"
     android:orientation="vertical"
     tools:context=".ImcActivity">
 
@@ -43,6 +43,7 @@
             android:layout_height="wrap_content">
 
             <AutoCompleteTextView
+                android:id="@+id/auto_lifestyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none" />
@@ -52,6 +53,8 @@
         <Button
             android:id="@+id/btn_imc_send"
             style="@style/ButtonFrom"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/english_red"
             android:text="@string/label_calculate" />
 
     </LinearLayout>
