@@ -51,7 +51,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_imc_send"
+            android:id="@+id/btn_tmb_send"
             style="@style/ButtonFrom"
             android:textColor="@color/white"
             android:backgroundTint="@color/english_red"

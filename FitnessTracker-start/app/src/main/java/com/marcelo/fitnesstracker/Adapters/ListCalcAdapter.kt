@@ -40,7 +40,7 @@ class ListCalcAdapter(
             date.text = simpleDateFormat.format(item.createdDate)
 
             type.text = item.type.uppercase(Locale.getDefault())
-            result.text = item.response.toString().substring(0, 5)
+            result.text = item.response.toString().substring(0, 6)
 
         }
 

@@ -65,8 +65,6 @@ class ImcActivity : AppCompatActivity() {
                         calcDao.insert(Calc(type = "imc", response = result))
 
                         runOnUiThread {
-                            /*val view: LinearLayout = findViewById(R.id.imc_layout)
-                            Snackbar.make(view, R.string.calc_saved, Snackbar.LENGTH_LONG).show()*/
                             finish()
                             onOpenActivity()
 
