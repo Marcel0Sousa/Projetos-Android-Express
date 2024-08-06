@@ -1,6 +1,7 @@
 package com.marcelo.fitnesstracker
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                     )
                     startActivity(intent)
                 }
+
             }
 
         }
@@ -64,6 +66,15 @@ class MainActivity : AppCompatActivity() {
                 drawableId = R.drawable.ic_tmb,
                 textString = R.string.label_tmb,
                 color = R.color.color_tmb
+            )
+        )
+
+        mainItens.add(
+            MainItens(
+                id = 3,
+                drawableId = R.drawable.sunny_24,
+                textString = R.string.normal,
+                color = R.color.pine_green
             )
         )
         return mainItens

@@ -84,12 +84,13 @@ class TmbActivity : AppCompatActivity() {
                 }
                 .create()
                 .show()
+
+            // Ocultar teclado
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
 
-        // Ocultar teclado
-        val inputMethodManager =
-            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 
     // Apontando ao layout do Menu

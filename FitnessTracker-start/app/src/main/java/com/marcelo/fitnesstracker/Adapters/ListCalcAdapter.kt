@@ -40,8 +40,18 @@ class ListCalcAdapter(
             date.text = simpleDateFormat.format(item.createdDate)
 
             type.text = item.type.uppercase(Locale.getDefault())
-            result.text = item.response.toString().format("%1$.2f", item.response)
+            result.text = formatNumber(item.response)
 
+            //result.text = item.response.toString().substring(0, 5)
+            /*if (item.type == "tmb") {
+                result.text = item.response.toString().format("%1$.2f", item.response)
+                return
+            }*/
+
+        }
+
+        private fun formatNumber(number: Double): String {
+            return String.format("%1$.2f", number)
         }
 
     }

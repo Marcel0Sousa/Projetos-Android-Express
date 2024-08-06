@@ -23,16 +23,19 @@
             android:text="@string/tmb_desc" />
 
         <EditText
+            android:maxLength="3"
             android:id="@+id/edt_tmb_weight"
             style="@style/EditTextForm"
             android:hint="@string/weight_kg" />
 
         <EditText
+            android:maxLength="3"
             android:id="@+id/edt_tmb_height"
             style="@style/EditTextForm"
             android:hint="@string/height_cm" />
 
         <EditText
+            android:maxLength="3"
             android:id="@+id/edt_tmb_age"
             style="@style/EditTextForm"
             android:hint="@string/age" />
