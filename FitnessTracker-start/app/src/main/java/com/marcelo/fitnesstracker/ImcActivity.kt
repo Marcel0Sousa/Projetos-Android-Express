@@ -15,6 +15,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.marcelo.fitnesstracker.model.Calc
 
 
@@ -38,7 +39,7 @@ class ImcActivity : AppCompatActivity() {
 
         btnSend.setOnClickListener {
             if (!validate()) {
-                Toast.makeText(this, R.string.fields_messages, Toast.LENGTH_SHORT).show()
+                Snackbar.make(btnSend, R.string.fields_messages, Snackbar.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 

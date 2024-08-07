@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.marcelo.fitnesstracker.model.Calc
 
 class TmbActivity : AppCompatActivity() {
@@ -50,7 +51,7 @@ class TmbActivity : AppCompatActivity() {
 
         btnSend.setOnClickListener {
             if (!validate()) {
-                Toast.makeText(this, R.string.fields_messages, Toast.LENGTH_LONG).show()
+                Snackbar.make(btnSend, R.string.fields_messages, Snackbar.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
