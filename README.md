@@ -30,3 +30,6 @@ dependencies {
     kapt ("androidx.room:room-compiler:room_version")
 }
 ```
+
+## Screenshot
+<img src="https://github.com/Marcel0Sousa/Projetos-Android-Express/blob/FitnessTracker/FitnessTracker.gif?raw=true" alt="Script">
