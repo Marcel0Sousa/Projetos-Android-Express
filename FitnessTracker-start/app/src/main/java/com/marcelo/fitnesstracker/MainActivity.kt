@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.marcelo.fitnesstracker.Adapters.MainAdapter
 import com.marcelo.fitnesstracker.model.MainItens
 
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
                         TmbActivity::class.java
                     )
                     startActivity(intent)
+                }
+
+                3-> {
+                    Snackbar.make(rvMainActivity, "Funcionalidade em desenvolvimento", Snackbar.LENGTH_LONG).show()
                 }
 
             }
@@ -73,8 +78,8 @@ class MainActivity : AppCompatActivity() {
             MainItens(
                 id = 3,
                 drawableId = R.drawable.sunny_24,
-                textString = R.string.normal,
-                color = R.color.pine_green
+                textString = R.string.icg,
+                color = R.color.dollar_bill
             )
         )
         return mainItens
