@@ -32,4 +32,6 @@ dependencies {
 ```
 
 ## Screenshot
-![](https://github.com/Marcel0Sousa/Projetos-Android-Express/blob/FitnessTracker/FitnessTracker.gif?raw=true)
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW1ya2pqd2ZnOXZ4cjJtOGd1cnFmZzh4MHJjbzd0b2Z0enhzNzc4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1tam8dOcFWPilW1fpT/giphy.gif" alt="Script">
+
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGduMjI4c283cnB1cDl3dzl3cXRwZHV1c3NpODFpbzg3eTY3bjdudCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cBhJF4u9D739E1XNwO/giphy.gif" alt="Script">
