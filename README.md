@@ -32,4 +32,4 @@ dependencies {
 ```
 
 ## Screenshot
-<img src="https://github.com/Marcel0Sousa/Projetos-Android-Express/blob/FitnessTracker/FitnessTracker.gif?raw=true" alt="Script">
+![](https://github.com/Marcel0Sousa/Projetos-Android-Express/blob/FitnessTracker/FitnessTracker.gif?raw=true)
