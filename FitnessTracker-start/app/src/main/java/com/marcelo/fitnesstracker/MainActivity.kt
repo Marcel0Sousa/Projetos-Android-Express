@@ -1,10 +1,8 @@
 package com.marcelo.fitnesstracker
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                     Snackbar.make(rvMainActivity, "Funcionalidade em desenvolvimento", Snackbar.LENGTH_LONG).show()
                 }
 
+                4-> {
+                    Snackbar.make(rvMainActivity, "Funcionalidade em desenvolvimento", Snackbar.LENGTH_LONG).show()
+                }
+
             }
 
         }
@@ -61,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 id = 1,
                 drawableId = R.drawable.ic_imc,
                 textString = R.string.label_imc,
-                color = R.color.color_imc
+                color = R.color.pewter_blue
             )
         )
 
@@ -70,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 id = 2,
                 drawableId = R.drawable.ic_tmb,
                 textString = R.string.label_tmb,
-                color = R.color.color_tmb
+                color = R.color.mauvelous
             )
         )
 
@@ -79,9 +81,19 @@ class MainActivity : AppCompatActivity() {
                 id = 3,
                 drawableId = R.drawable.sunny_24,
                 textString = R.string.icg,
-                color = R.color.dollar_bill
+                color = R.color.olivine
             )
         )
+
+        mainItens.add(
+            MainItens(
+                id = 4,
+                drawableId = R.drawable.ic_fcm,
+                textString = R.string.fcm,
+                color = R.color.dark_sky_blue
+            )
+        )
+
         return mainItens
     }
 

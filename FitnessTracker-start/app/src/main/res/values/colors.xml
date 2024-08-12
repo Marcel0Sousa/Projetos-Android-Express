@@ -7,5 +7,10 @@
     <color name="english_red">#A3484F</color>
     <color name="color_imc">#54AFA4</color>
     <color name="pine_green">#00796B</color>
-    <color name="dollar_bill">#8BC34A</color>
+
+
+    <color name="olivine">#A6C484</color>
+    <color name="mauvelous">#F9A0A6</color>
+    <color name="pewter_blue">#86B8B2</color>
+    <color name="dark_sky_blue">#80B6CF</color>
 </resources>

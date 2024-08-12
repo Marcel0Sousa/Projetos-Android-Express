@@ -34,5 +34,6 @@
     <string name="calc">Calcular</string>
     <string name="fields_message">Os campos devem ser preenchidos e diferente de zero</string>
     <string name="icg">IGC</string>
+    <string name="fcm">FCM</string>
 
 </resources>
