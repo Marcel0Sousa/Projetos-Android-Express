@@ -11,3 +11,4 @@
 | Projeto App Netflix Remake |
 | ----------------------------- |
 | Modificando Temas no Android |
+| Arquitetura Inicial e Modelos de Dados |
