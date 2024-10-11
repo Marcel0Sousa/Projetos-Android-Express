@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marcelo.sousa.netflixremake.model.Category
 
+//
 class CategoryAdapter(
     private val categories: List<Category>
 ): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {

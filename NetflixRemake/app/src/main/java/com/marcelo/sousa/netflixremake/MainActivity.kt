@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.actvity_main)
 
         val categories = mutableListOf<Category>()
-
         for (j in 0 until 5) {
+
             val movies = mutableListOf<Movie>()
             for (i in 0 until 5) {
                 val movie = Movie(R.drawable.movie)
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val adapter = CategoryAdapter(categories)
-        val rvMain: RecyclerView = findViewById(R.id.rv_category)
+        val rvMain: RecyclerView = findViewById(R.id.rv_main)
         rvMain.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvMain.adapter = adapter
     }
