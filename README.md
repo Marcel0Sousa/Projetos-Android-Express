@@ -15,3 +15,4 @@
 | Usando Imagens e Proporções de Telas |
 | Implementação do RecyclerView Vertical/Horizontal |
 | Placeholder de carregamento da imagem |
+| Parsers: Convertendo Estruturas de Dados |
