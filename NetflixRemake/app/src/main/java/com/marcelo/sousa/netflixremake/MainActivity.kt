@@ -1,18 +1,26 @@
 package com.marcelo.sousa.netflixremake
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marcelo.sousa.netflixremake.model.Category
 import com.marcelo.sousa.netflixremake.model.Movie
+import com.marcelo.sousa.netflixremake.util.Callback
 import com.marcelo.sousa.netflixremake.util.CategoryTask
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Callback {
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actvity_main)
+
+        progressBar = findViewById(R.id.progressBar)
 
         val categories = mutableListOf<Category>()
 
@@ -35,6 +43,22 @@ class MainActivity : AppCompatActivity() {
         rvMain.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvMain.adapter = adapter
 
-        CategoryTask().execute("https://api.tiagoaguiar.co/netflixapp/home?apiKey=6a9a03b3-7370-4bc2-af5e-afa9ea9d5b24")
+        CategoryTask(this).execute("https://api.tiagoaguiar.co/netflixapp/home?apiKey=6a9a03b3-7370-4bc2-af5e-afa9ea9d5b24")
+    }
+
+    override fun onPreExecute() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun onResult(toCategories: List<Category>) {
+        // aqui será quando o CategoryTask chamará de volta
+        // (callback) - listener
+        Log.i("Teste Activity", toCategories.toString())
+        progressBar.visibility = View.GONE
+    }
+
+    override fun onFailure(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        progressBar.visibility = View.GONE
     }
 }

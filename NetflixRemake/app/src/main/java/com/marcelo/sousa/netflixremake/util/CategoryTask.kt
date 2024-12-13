@@ -1,5 +1,7 @@
 package com.marcelo.sousa.netflixremake.util
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.marcelo.sousa.netflixremake.model.Category
 import com.marcelo.sousa.netflixremake.model.Movie
@@ -12,10 +14,12 @@ import java.net.URL
 import java.util.concurrent.Executors
 import javax.net.ssl.HttpsURLConnection
 
-class CategoryTask {
+class CategoryTask(private val callback: Callback) {
+
+    private val handler = Handler(Looper.getMainLooper())
 
     fun execute(url: String) {
-
+        callback.onPreExecute()
         // utilizando a UI-thread (1)
         val executor = Executors.newSingleThreadExecutor()
 
@@ -53,10 +57,17 @@ class CategoryTask {
                 Log.i("Teste", jsonAsString)
                 // Converter JSON to Data Class
                 val toCategories = toCategories(jsonAsString)
-                Log.i("Teste", toCategories.toString())
+
+                handler.post {
+                    // utilizando a UI-thread (2)
+                    callback.onResult(toCategories)
+
+                }
 
             } catch (e: IOException) {
-                Log.e("Teste", e.message ?: "erro desconhecido")
+                val message = e.message ?: "erro desconhecido"
+                Log.e("Teste",message, e)
+                callback.onFailure(message)
             } finally {
                 urlConnection?.disconnect()
                 inputStream?.close()
