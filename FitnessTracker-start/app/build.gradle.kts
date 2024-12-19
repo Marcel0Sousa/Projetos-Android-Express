@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.marcelo.fitnesstracker"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.marcelo.fitnesstracker"
@@ -34,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
